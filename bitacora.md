@@ -684,3 +684,81 @@ Este código crea una tabla de talleres, registra un taller de Desarrollo Web y 
 **Conclusión:**
 
 Aprendí a crear y administrar registros mediante SQL. Comprendí cómo utilizar las operaciones básicas de una base de datos y cómo relacionar información mediante claves primarias y foráneas.
+
+### Actividad 15 – Git y control de versiones
+
+**Resumen propio (2–3 frases):**
+
+En esta actividad aprendí a utilizar Git para guardar y controlar las diferentes versiones de mi proyecto de Desarrollo Web. Realicé tres commits para organizar los archivos de configuración, el diseño del formulario y las funciones de JavaScript y Express. También comprobé el historial de cambios y verifiqué que todos los archivos quedaron guardados correctamente.
+
+**Dos términos clave:**
+
+- **Git:** Es una herramienta que permite controlar las versiones de un proyecto y conservar el historial de cambios.
+- **Commit:** Es un registro que guarda una versión de los archivos del proyecto.
+
+**Diferencia entre git add, git commit y git push:**
+
+- `git add`: Prepara los archivos modificados para incluirlos en el siguiente commit.
+- `git commit`: Guarda los cambios preparados en el historial local del proyecto.
+- `git push`: Envía los commits del repositorio local a un repositorio remoto, como GitHub.
+
+**Diferencia entre Git y GitHub:**
+
+Git es una herramienta de control de versiones que funciona en mi computadora. GitHub es una plataforma en línea que permite almacenar y compartir repositorios Git.
+
+**Comandos utilizados:**
+
+```bash
+git init
+git status
+git add
+git commit
+git log --oneline
+```
+
+**Commits realizados:**
+
+**Primer commit: Estructura inicial**
+
+- Identificador: `0ba1ddf`
+- Mensaje: "Agrega estructura inicial del proyecto"
+- Archivos: `.gitignore`, `README.md`, `package.json` y `package-lock.json`.
+
+**Segundo commit: HTML y CSS**
+
+- Identificador: `18e22b5`
+- Mensaje: "Completa formulario HTML y estilos CSS"
+- Archivos: `public/index.html` y `public/styles.css`.
+
+**Tercer commit: JavaScript y API Express**
+
+- Identificador: `1728753`
+- Mensaje: "Implementa JavaScript, API Express y bitacora"
+- Archivos: `public/app.js`, `server.js` y `bitacora.md`.
+
+**Resultado obtenido:**
+
+Se realizaron correctamente tres commits en la rama `master`. Al ejecutar `git log --oneline`, aparecieron las tres versiones guardadas.
+
+También ejecuté `git status` y obtuve el mensaje:
+
+```text
+On branch master
+nothing to commit, working tree clean
+```
+
+Esto confirmó que todos los archivos estaban guardados en Git y no había cambios pendientes en ese momento.
+
+**¿Qué información comunica un buen mensaje de commit?**
+
+Un buen mensaje de commit describe de manera breve y clara qué modificación se realizó en el proyecto. Por ejemplo: "Completa formulario HTML y estilos CSS".
+
+**Pregunta que podría aparecer en el examen:**
+
+¿Cuál es el orden correcto para guardar y publicar los cambios de un proyecto utilizando Git?
+
+**Respuesta:** Primero `git add`, después `git commit` y finalmente `git push`.
+
+**Conclusión:**
+
+Aprendí a utilizar Git para organizar el desarrollo de un proyecto mediante diferentes versiones. También comprendí cómo consultar el historial y verificar que los cambios estén guardados correctamente antes de publicarlos en GitHub.
