@@ -761,4 +761,50 @@ Un buen mensaje de commit describe de manera breve y clara qué modificación se
 
 **Conclusión:**
 
-Aprendí a utilizar Git para organizar el desarrollo de un proyecto mediante diferentes versiones. También comprendí cómo consultar el historial y verificar que los cambios estén guardados correctamente antes de publicarlos en GitHub.
+Aprendí a utilizar Git para organizar el desarrollo de un proyecto mediante diferentes versiones. También comprendí cómo consultar el historial y verificar que los cambios estén guardados correctamente antes de publicarlos en GitHub.git add bitacora.md
+
+### Actividad 16 – Cuenta y repositorio de GitHub
+
+**Resumen propio:**
+
+En esta actividad aprendí a crear un repositorio público en GitHub y conectarlo con mi proyecto de Visual Studio Code. Utilicé comandos de Git para cambiar el nombre de la rama, configurar el repositorio remoto y publicar los commits realizados anteriormente. Finalmente, comprobé que el proyecto se subió correctamente.
+
+**Dos términos clave:**
+
+- **Repositorio remoto:** Es un espacio en una plataforma como GitHub donde se almacenan los archivos y el historial de cambios del proyecto.
+- **Push:** Es una operación de Git que envía los commits locales al repositorio remoto.
+
+**Comandos utilizados:**
+
+```bash
+git branch -M main
+git remote add origin https://github.com/echolotioh-crypto/registro-taller-desarrollo-web.git
+git remote -v
+git push -u origin main
+```
+
+**Ejemplo explicado:**
+
+El comando `git push -u origin main` permite publicar los commits de la rama main en GitHub y configurar el seguimiento de la rama remota.
+
+**¿Por qué no agregué otro README al crear el repositorio?**
+
+Porque el proyecto local ya tenía un archivo README.md y necesitaba crear un repositorio vacío para publicar los archivos existentes sin generar conflictos.
+
+**Repositorio del proyecto:**
+
+https://github.com/echolotioh-crypto/registro-taller-desarrollo-web
+
+**Resultado obtenido:**
+
+El proyecto se publicó correctamente en GitHub. La terminal confirmó la creación de la rama remota main y su conexión con origin/main.
+
+**Pregunta de examen:**
+
+¿Para qué sirve el comando git push?
+
+**Respuesta:** Para enviar los commits del repositorio local a un repositorio remoto como GitHub.
+
+**Conclusión:**
+
+Aprendí a publicar un proyecto de Desarrollo Web en GitHub y a mantener conectado mi repositorio local con el remoto. Esto permite compartir el código y conservar su historial de versiones.
