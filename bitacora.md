@@ -808,3 +808,51 @@ El proyecto se publicó correctamente en GitHub. La terminal confirmó la creaci
 **Conclusión:**
 
 Aprendí a publicar un proyecto de Desarrollo Web en GitHub y a mantener conectado mi repositorio local con el remoto. Esto permite compartir el código y conservar su historial de versiones.
+
+### Actividad 17 – Quiz frontend
+
+**Resumen propio:**
+
+En esta actividad repasé mis conocimientos sobre HTML, CSS y JavaScript mediante un cuestionario de siete preguntas. Recordé cómo crear formularios, aplicar estilos y controlar eventos de una página web. También reforcé el uso de atributos y reglas para adaptar una página a diferentes pantallas.
+
+**Dos términos clave:**
+
+- **HTML:** Lenguaje que permite estructurar el contenido de una página web.
+- **JavaScript:** Lenguaje de programación que permite agregar interactividad y responder a eventos.
+
+**Respuestas del cuestionario:**
+
+1. HTML define la estructura y el significado del contenido.
+2. El atributo `for` de una etiqueta label debe coincidir con el `id` del campo.
+3. `type="email"` y `required` permiten solicitar un correo obligatorio con formato válido.
+4. `.tarjeta` es un selector CSS que identifica elementos mediante una clase.
+5. `@media (max-width: 640px)` aplica estilos cuando el ancho es de 640 píxeles o menos.
+6. `addEventListener()` permite escuchar eventos y ejecutar funciones.
+7. `preventDefault()` evita la acción predeterminada de un evento, como el envío normal de un formulario que puede recargar o cambiar la página.
+
+**Ejemplo explicado:**
+
+```javascript
+const formulario = document.querySelector("#formulario-registro");
+
+formulario.addEventListener("submit", (evento) => {
+  evento.preventDefault();
+  console.log("Formulario enviado");
+});
+```
+
+Este código identifica un formulario, escucha su evento submit y evita el envío tradicional para poder procesar los datos con JavaScript.
+
+**Resultado del cuestionario:**
+
+Se respondieron las siete preguntas de repaso sobre frontend. Las respuestas incorrectas, si las hubiera, se revisan para comprender los errores.
+
+**Pregunta de examen:**
+
+¿Para qué sirve addEventListener() en JavaScript?
+
+**Respuesta:** Para escuchar un evento y ejecutar una función cuando ocurre.
+
+**Conclusión:**
+
+Este cuestionario me ayudó a reforzar los conceptos fundamentales del desarrollo frontend y comprender cómo trabajan juntos HTML, CSS y JavaScript.
