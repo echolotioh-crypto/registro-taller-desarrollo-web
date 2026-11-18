@@ -967,3 +967,167 @@ El sistema permite registrar, consultar, editar y eliminar participantes utiliza
 ### Conclusión
 
 Aprendí a conectar una aplicación web con una base de datos SQLite utilizando Node.js y Express. También comprendí cómo funcionan las operaciones CRUD y cómo utilizar JavaScript para actualizar la información sin recargar la página.
+
+
+## Ampliación final del proyecto: SQLite, CRUD y reportes
+
+### Descripción de la actividad
+
+Se amplió el Sistema de Registro al Taller de Desarrollo Web para incorporar almacenamiento persistente, operaciones CRUD completas y un módulo de reportes estadísticos.
+
+El objetivo de esta etapa fue mejorar la administración de participantes y permitir la visualización de los datos registrados.
+
+### 1. Implementación de SQLite
+
+Se utilizó SQLite como sistema de gestión de base de datos local.
+
+Se creó el archivo database.js para inicializar la base de datos registro_taller.db y administrar la tabla inscripciones.
+
+La tabla contiene los campos:
+
+- id
+- nombre
+- correo
+- telefono
+- taller
+- horario
+- modalidad
+- nivel_experiencia
+- fecha_registro
+
+Se comprobó que los datos permanecen almacenados después de reiniciar el servidor.
+
+### 2. Implementación de operaciones CRUD
+
+Se desarrollaron las siguientes funciones:
+
+- GET /api/inscripciones: consultar participantes.
+- POST /api/inscripciones: registrar participantes.
+- PUT /api/inscripciones/:id: actualizar inscripciones.
+- DELETE /api/inscripciones/:id: eliminar participantes.
+
+También se implementaron validaciones de campos obligatorios, correo electrónico, longitud de datos e identificadores.
+
+### 3. Desarrollo de reportes estadísticos
+
+Se agregó el endpoint:
+
+GET /api/reportes
+
+Este servicio utiliza consultas SQL con COUNT() y GROUP BY para obtener:
+
+- Total de participantes inscritos.
+- Participantes por taller.
+- Participantes por modalidad.
+- Participantes por nivel de experiencia.
+
+Los resultados se devuelven en formato JSON.
+
+### 4. Diseño de los gráficos
+
+Se actualizó index.html para agregar una sección denominada "Reportes de inscripciones".
+
+Se modificó app.js para consultar la API y generar gráficos de barras mediante JavaScript.
+
+Se actualizó styles.css para diseñar las tarjetas estadísticas y adaptar los gráficos a diferentes tamaños de pantalla.
+
+El módulo incluye un botón para actualizar manualmente los reportes.
+
+### 5. Pruebas funcionales
+
+Prueba 1: Registro de participantes.
+
+Se registró un nuevo participante y se verificó que la información apareciera en la lista y en SQLite.
+
+Resultado: Correcto.
+
+Prueba 2: Consulta de participantes.
+
+Se utilizó GET /api/inscripciones para consultar los registros.
+
+Resultado: Correcto.
+
+Prueba 3: Edición de participantes.
+
+Se modificó una inscripción mediante PUT y se comprobó que los cambios fueran almacenados.
+
+Resultado: Correcto.
+
+Prueba 4: Eliminación de participantes.
+
+Se eliminó una inscripción mediante DELETE, después de confirmar la operación.
+
+Resultado: Correcto.
+
+Prueba 5: Consulta de estadísticas.
+
+Se accedió a GET /api/reportes y se obtuvo información estadística en formato JSON.
+
+Resultado: Correcto.
+
+Prueba 6: Actualización de estadísticas al registrar.
+
+El total de participantes aumentó de 1 a 2. Los gráficos mostraron correctamente la nueva distribución.
+
+Resultado: Correcto.
+
+Prueba 7: Actualización de estadísticas al editar.
+
+Se modificaron la modalidad y el nivel de experiencia de un participante. El total permaneció en 2 y los gráficos reflejaron los cambios.
+
+Resultado: Correcto.
+
+Prueba 8: Actualización de estadísticas al eliminar.
+
+Se eliminó el participante de prueba. El total disminuyó de 2 a 1 y los gráficos se actualizaron correctamente.
+
+Resultado: Correcto.
+
+### 6. Evidencias
+
+Se organizaron 16 capturas de pantalla dentro de la carpeta evidencias.
+
+Estas documentan:
+
+- Formulario de inscripción.
+- Registro de participantes.
+- Lista de participantes inscritos.
+- Edición de información.
+- Eliminación de registros.
+- Consulta de la API REST.
+- Base de datos SQLite.
+- Repositorio de GitHub.
+- API de reportes.
+- Reportes después de registrar.
+- Reportes después de editar.
+- Reportes después de eliminar.
+
+### 7. Control de versiones
+
+Se utilizó Git para registrar los cambios realizados.
+
+Se publicó el código fuente en GitHub junto con los archivos de documentación y las evidencias.
+
+Repositorio:
+
+https://github.com/echolotioh-crypto/registro-taller-desarrollo-web
+
+### 8. Dificultades y soluciones
+
+Durante el desarrollo, PowerShell bloqueó la ejecución del comando npm debido a la configuración de ejecución de scripts.
+
+Solución: Se utilizó npm.cmd start.
+
+También se presentó el mensaje "Cannot GET /api/reportes" porque el servidor aún estaba ejecutando la versión anterior del código.
+
+Solución: Se reinició el servidor y se comprobó el funcionamiento de la nueva ruta.
+
+### 9. Conclusión
+
+La ampliación permitió desarrollar un sistema web con almacenamiento persistente, operaciones CRUD y reportes estadísticos.
+
+Se integraron conocimientos de HTML, CSS, JavaScript, Node.js, Express, SQLite, SQL y API REST.
+
+Las pruebas realizadas demostraron que el sistema permite administrar inscripciones y actualizar sus estadísticas de acuerdo con los cambios efectuados.
+
+El proyecto quedó documentado mediante capturas de pantalla, una bitácora de desarrollo y un repositorio de GitHub.
