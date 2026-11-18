@@ -1,6 +1,15 @@
 
+/* ========================================
+   PROYECTO FINAL: REGISTRO AL TALLER
+   ESTILOS DEL SISTEMA Y REPORTES
+======================================== */
+
+/* CONFIGURACIÓN GENERAL */
+
 :root {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+
   color: #18253b;
   background: #f4f6f8;
 }
@@ -20,26 +29,41 @@ body {
   padding: 3rem 0;
 }
 
+/* ========================================
+   ENCABEZADO
+======================================== */
+
 .encabezado {
   margin-bottom: 1.5rem;
 }
 
 .etiqueta {
   color: #087e83;
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
 }
 
 h1 {
-  margin: .25rem 0;
+  margin: 0.25rem 0;
   font-size: clamp(2rem, 6vw, 3.5rem);
 }
 
-/* ACTIVIDAD 06: CSS Y MODELO DE CAJA */
+h2 {
+  color: #18253b;
+}
 
-/* Panel del formulario */
+h3 {
+  color: #213149;
+}
+
+/* ========================================
+   ACTIVIDAD 06: CSS Y MODELO DE CAJA
+======================================== */
+
+/* PANELES DEL SISTEMA */
+
 .panel {
   margin: 1.5rem 0;
   border: 2px solid #087e83;
@@ -49,86 +73,378 @@ h1 {
   box-shadow: 0 10px 28px #18253b0d;
 }
 
-/* Formulario */
+/* FORMULARIO */
+
 form {
   display: grid;
-  gap: .65rem;
+  gap: 0.65rem;
 }
 
-/* Etiquetas de los campos */
 label {
-  margin-top: .45rem;
+  margin-top: 0.45rem;
   font-weight: 700;
 }
 
-/* Campos de entrada */
+/* CAMPOS DEL FORMULARIO */
+
 input,
 select {
   width: 100%;
   min-height: 44px;
   border: 1px solid #aeb9c7;
   border-radius: 9px;
-  padding: .65rem .75rem;
+  padding: 0.65rem 0.75rem;
   background: white;
+  color: #18253b;
   font: inherit;
 }
 
-/* Estilo al seleccionar un campo */
 input:focus,
 select:focus {
   outline: 3px solid #bde1d8;
   border-color: #087e83;
 }
 
-/* Botón de registro */
+/* BOTONES GENERALES */
+
 button {
   min-height: 46px;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   border: 0;
   border-radius: 9px;
-  padding: .7rem 1rem;
+  padding: 0.7rem 1rem;
   color: white;
   background: #087e83;
   font: inherit;
   font-weight: 800;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
-/* Efecto al pasar el mouse */
 button:hover {
   background: #06656b;
 }
 
-/* Mensajes del formulario */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+}
+
+/* MENSAJES */
+
 .mensaje {
   min-height: 1.5em;
   color: #06656b;
   font-weight: 700;
 }
 
-/* Lista de participantes */
+/* ========================================
+   PARTICIPANTES INSCRITOS
+======================================== */
+
 #lista-inscripciones {
+  list-style: none;
+  padding-left: 0;
   display: grid;
-  gap: .6rem;
-  padding-left: 1.25rem;
+  gap: 1rem;
 }
 
-/* Estilo de cada participante */
-#lista-inscripciones li {
-  padding: .6rem;
-  border-radius: 8px;
+/* TARJETA DE CADA PARTICIPANTE */
+
+#lista-inscripciones li:not(.vacio) {
   background: #eef9f6;
+  border: 1px solid #cce9e4;
+  border-radius: 12px;
+  padding: 1.2rem;
+  overflow-wrap: anywhere;
 }
 
-/* Mensaje cuando no hay participantes */
+#lista-inscripciones li p {
+  margin: 0 0 1rem;
+  line-height: 1.7;
+}
+
+/* BOTONES EDITAR Y ELIMINAR */
+
+#lista-inscripciones li button {
+  width: auto;
+  min-height: 42px;
+  margin: 0 0.6rem 0.4rem 0;
+  padding: 0.65rem 1.2rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: 700;
+}
+
+/* BOTÓN EDITAR - AZUL */
+
+#lista-inscripciones li button:first-of-type {
+  background: #2563eb;
+}
+
+#lista-inscripciones li button:first-of-type:hover {
+  background: #1d4ed8;
+}
+
+/* BOTÓN ELIMINAR - ROJO */
+
+#lista-inscripciones li button:last-of-type {
+  background: #dc2626;
+}
+
+#lista-inscripciones li button:last-of-type:hover {
+  background: #b91c1c;
+}
+
+/* BOTÓN CANCELAR EDICIÓN */
+
+#formulario-registro button[type="button"] {
+  background: #64748b;
+}
+
+#formulario-registro button[type="button"]:hover {
+  background: #475569;
+}
+
+/* ESTADO SIN REGISTROS */
+
 .vacio {
   color: #647188;
   background: transparent !important;
 }
 
-/* ACTIVIDAD 07: DISEÑO RESPONSIVE */
+/* ========================================
+   NUEVA SECCIÓN: REPORTES
+======================================== */
 
-/* Adaptación para pantallas de 640px o menos */
+.panel-reportes {
+  border-color: #087e83;
+  background: #ffffff;
+}
+
+/* ENCABEZADO DE REPORTES */
+
+.encabezado-reportes {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.encabezado-reportes h2 {
+  margin: 0.5rem 0;
+  font-size: 1.65rem;
+}
+
+.encabezado-reportes p {
+  line-height: 1.6;
+  color: #647188;
+}
+
+/* BOTÓN ACTUALIZAR REPORTES */
+
+.boton-actualizar {
+  margin-top: 0;
+  padding: 0.8rem 1.2rem;
+  background: #087e83;
+  border-radius: 10px;
+  white-space: normal;
+}
+
+.boton-actualizar:hover {
+  background: #06656b;
+}
+
+/* ========================================
+   TARJETA: TOTAL DE PARTICIPANTES
+======================================== */
+
+.tarjeta-total {
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    #087e83,
+    #06656b
+  );
+  color: white;
+  text-align: center;
+  box-shadow: 0 8px 22px #087e8329;
+}
+
+.tarjeta-total h3 {
+  margin: 0;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.numero-total {
+  margin: 0.8rem 0;
+  font-size: clamp(3rem, 8vw, 5rem);
+  line-height: 1.2;
+  font-weight: 900;
+  color: white;
+}
+
+.tarjeta-total p:last-child {
+  margin: 0;
+  color: #e1f5f2;
+  font-size: 0.95rem;
+}
+
+/* ========================================
+   CONTENEDOR DE LOS TRES GRÁFICOS
+======================================== */
+
+.contenedor-graficos {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 240px), 1fr)
+  );
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+/* TARJETAS DE GRÁFICOS */
+
+.tarjeta-grafico {
+  min-width: 0;
+  padding: 1.5rem;
+  border: 1px solid #d8e8e5;
+  border-radius: 14px;
+  background: #f8fcfb;
+  box-shadow: 0 4px 12px #18253b0a;
+}
+
+.tarjeta-grafico h3 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  color: #087e83;
+  font-size: 1.1rem;
+}
+
+.tarjeta-grafico > p {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #647188;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ========================================
+   GRÁFICOS DE BARRAS
+======================================== */
+
+.grafico-barras {
+  display: grid;
+  gap: 1.15rem;
+}
+
+/* FILA DE CADA CATEGORÍA */
+
+.fila-grafico {
+  min-width: 0;
+}
+
+/* ENCABEZADO DE CADA BARRA */
+
+.encabezado-barra {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+/* NOMBRE DE LA CATEGORÍA */
+
+.etiqueta-grafico {
+  color: #24354d;
+  font-size: 0.88rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* CANTIDAD Y PORCENTAJE */
+
+.valor-grafico {
+  color: #087e83;
+  font-size: 0.85rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* FONDO DE LAS BARRAS */
+
+.barra-fondo {
+  width: 100%;
+  height: 16px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #dcebe8;
+}
+
+/* RELLENO DE LAS BARRAS */
+
+.barra-relleno {
+  width: 0;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #087e83,
+    #16a6a0
+  );
+  transition: width 0.4s ease;
+}
+
+/* MENSAJE DE REPORTES */
+
+#mensaje-reportes {
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+/* ========================================
+   ACTIVIDAD 07: DISEÑO RESPONSIVE
+======================================== */
+
+/* TABLETAS */
+
+@media (max-width: 768px) {
+
+  .contenedor {
+    width: calc(100% - 2rem);
+    padding: 2rem 0;
+  }
+
+  .panel {
+    padding: 1.5rem;
+  }
+
+  .encabezado-reportes {
+    flex-direction: column;
+  }
+
+  .tarjeta-total {
+    padding: 1.5rem;
+  }
+
+}
+
+/* TELÉFONOS */
+
 @media (max-width: 640px) {
 
   .contenedor {
@@ -154,79 +470,53 @@ button:hover {
   button {
     width: 100%;
   }
-}
 
-
-/* DISEÑO DE PARTICIPANTES INSCRITOS */
-
-#lista-inscripciones {
-  list-style: none;
-  padding-left: 0;
-  display: grid;
-  gap: 1rem;
-}
-
-#lista-inscripciones li:not(.vacio) {
-  background: #eef9f6;
-  border: 1px solid #cce9e4;
-  border-radius: 12px;
-  padding: 1.2rem;
-  overflow-wrap: anywhere;
-}
-
-/* Información del participante */
-#lista-inscripciones li p {
-  margin: 0 0 1rem;
-  line-height: 1.7;
-}
-
-/* Botones de acciones */
-#lista-inscripciones li button {
-  width: auto;
-  min-height: 42px;
-  margin: 0 .6rem .4rem 0;
-  padding: .65rem 1.2rem;
-  border-radius: 8px;
-  color: white;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-/* Botón Editar - azul */
-#lista-inscripciones li button:first-of-type {
-  background: #2563eb;
-}
-
-#lista-inscripciones li button:first-of-type:hover {
-  background: #1d4ed8;
-}
-
-/* Botón Eliminar - rojo */
-#lista-inscripciones li button:last-of-type {
-  background: #dc2626;
-}
-
-#lista-inscripciones li button:last-of-type:hover {
-  background: #b91c1c;
-}
-
-/* Botón Cancelar edición */
-#formulario-registro button[type="button"] {
-  background: #64748b;
-}
-
-#formulario-registro button[type="button"]:hover {
-  background: #475569;
-}
-
-/* Adaptación para teléfonos */
-@media (max-width: 600px) {
   #lista-inscripciones li {
     padding: 1rem;
   }
 
   #lista-inscripciones li button {
     width: auto;
-    padding: .65rem 1rem;
+    padding: 0.65rem 1rem;
   }
+
+  .encabezado-reportes {
+    gap: 1rem;
+  }
+
+  .encabezado-reportes h2 {
+    font-size: 1.4rem;
+  }
+
+  .boton-actualizar {
+    width: 100%;
+  }
+
+  .tarjeta-total {
+    padding: 1.5rem 1rem;
+  }
+
+  .tarjeta-grafico {
+    padding: 1.25rem;
+  }
+
+  .contenedor-graficos {
+    grid-template-columns: 1fr;
+  }
+
+  .numero-total {
+    font-size: 3.5rem;
+  }
+
+}
+
+/* ACCESIBILIDAD: REDUCIR ANIMACIONES */
+
+@media (prefers-reduced-motion: reduce) {
+
+  button,
+  .barra-relleno {
+    transition: none;
+  }
+
 }

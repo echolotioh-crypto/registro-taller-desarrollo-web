@@ -17,8 +17,12 @@
 <body>
   <main class="contenedor">
 
-    <!-- Encabezado de la página -->
+    <!-- =====================================
+         ENCABEZADO DE LA PÁGINA
+    ====================================== -->
+
     <header class="encabezado">
+
       <p class="etiqueta">
         Universidad · Actividad de clase
       </p>
@@ -26,9 +30,13 @@
       <h1>Registro al taller</h1>
 
       <p>Completa tus datos para reservar un espacio.</p>
+
     </header>
 
-    <!-- Panel del formulario -->
+    <!-- =====================================
+         FORMULARIO DE INSCRIPCIÓN
+    ====================================== -->
+
     <section class="panel" aria-labelledby="titulo-formulario">
 
       <h2 id="titulo-formulario">Datos de inscripción</h2>
@@ -61,6 +69,7 @@
 
         <!-- Campo 3: Taller -->
         <label for="taller">Taller</label>
+
         <select id="taller" name="taller" required>
           <option value="">Selecciona un taller</option>
           <option value="HTML y CSS">HTML y CSS</option>
@@ -72,6 +81,7 @@
 
         <!-- Campo 4: Número de teléfono -->
         <label for="telefono">Número de teléfono</label>
+
         <input
           id="telefono"
           name="telefono"
@@ -85,6 +95,7 @@
 
         <!-- Campo 5: Horario del taller -->
         <label for="horario">Horario del taller</label>
+
         <select id="horario" name="horario" required>
           <option value="">Selecciona un horario</option>
           <option value="Matutino">Matutino</option>
@@ -93,6 +104,7 @@
 
         <!-- Campo 6: Modalidad del taller -->
         <label for="modalidad">Modalidad del taller</label>
+
         <select id="modalidad" name="modalidad" required>
           <option value="">Selecciona una modalidad</option>
           <option value="Presencial">Presencial</option>
@@ -104,6 +116,7 @@
         <label for="nivel_experiencia">
           Nivel de experiencia
         </label>
+
         <select
           id="nivel_experiencia"
           name="nivel_experiencia"
@@ -115,7 +128,7 @@
           <option value="Avanzado">Avanzado</option>
         </select>
 
-        <!-- Botón para registrar -->
+        <!-- Botón de inscripción -->
         <button type="submit">
           Registrar inscripción
         </button>
@@ -127,12 +140,15 @@
         id="mensaje"
         class="mensaje"
         role="status"
-        aria-live="polite">
-      </p>
+        aria-live="polite"
+      ></p>
 
     </section>
 
-    <!-- Panel de participantes inscritos -->
+    <!-- =====================================
+         LISTA DE PARTICIPANTES
+    ====================================== -->
+
     <section class="panel" aria-labelledby="titulo-lista">
 
       <h2 id="titulo-lista">Participantes inscritos</h2>
@@ -142,6 +158,143 @@
           Aún no hay inscripciones.
         </li>
       </ul>
+
+    </section>
+
+    <!-- =====================================
+         NUEVA SECCIÓN: REPORTES
+    ====================================== -->
+
+    <section
+      class="panel panel-reportes"
+      id="reportes"
+      aria-labelledby="titulo-reportes"
+    >
+
+      <div class="encabezado-reportes">
+
+        <div>
+          <p class="etiqueta">Estadísticas del sistema</p>
+          <h2 id="titulo-reportes">
+            Reportes de inscripciones
+          </h2>
+
+          <p>
+            Consulta las estadísticas de los
+            participantes registrados.
+          </p>
+        </div>
+
+        <button
+          type="button"
+          id="actualizar-reportes"
+          class="boton-actualizar"
+        >
+          Actualizar reportes
+        </button>
+
+      </div>
+
+      <!-- Total de participantes -->
+
+      <div class="tarjeta-total">
+
+        <h3>Total de participantes inscritos</h3>
+
+        <p
+          id="total-participantes"
+          class="numero-total"
+          aria-live="polite"
+        >
+          0
+        </p>
+
+        <p>
+          Inscripciones almacenadas en SQLite
+        </p>
+
+      </div>
+
+      <!-- Contenedor de gráficos -->
+
+      <div class="contenedor-graficos">
+
+        <!-- Gráfico 1: Participantes por taller -->
+
+        <article class="tarjeta-grafico">
+
+          <h3>Participantes por taller</h3>
+
+          <p>
+            Cantidad de estudiantes inscritos
+            en cada taller.
+          </p>
+
+          <div
+            id="grafico-taller"
+            class="grafico-barras"
+          >
+            <p class="vacio">
+              Los resultados aparecerán aquí.
+            </p>
+          </div>
+
+        </article>
+
+        <!-- Gráfico 2: Participantes por modalidad -->
+
+        <article class="tarjeta-grafico">
+
+          <h3>Participantes por modalidad</h3>
+
+          <p>
+            Distribución entre modalidad presencial,
+            virtual e híbrida.
+          </p>
+
+          <div
+            id="grafico-modalidad"
+            class="grafico-barras"
+          >
+            <p class="vacio">
+              Los resultados aparecerán aquí.
+            </p>
+          </div>
+
+        </article>
+
+        <!-- Gráfico 3: Participantes por experiencia -->
+
+        <article class="tarjeta-grafico">
+
+          <h3>Participantes por nivel de experiencia</h3>
+
+          <p>
+            Clasificación de los participantes
+            según su experiencia.
+          </p>
+
+          <div
+            id="grafico-nivel"
+            class="grafico-barras"
+          >
+            <p class="vacio">
+              Los resultados aparecerán aquí.
+            </p>
+          </div>
+
+        </article>
+
+      </div>
+
+      <!-- Mensajes de reportes -->
+
+      <p
+        id="mensaje-reportes"
+        class="mensaje"
+        role="status"
+        aria-live="polite"
+      ></p>
 
     </section>
 

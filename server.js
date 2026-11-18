@@ -1,7 +1,9 @@
 
-/* PROYECTO FINAL: REGISTRO DE PARTICIPANTES */
-/* Node.js + Express + SQLite */
-/* API REST: GET, POST, PUT y DELETE */
+/*
+ PROYECTO FINAL: REGISTRO DE PARTICIPANTES
+ Node.js + Express + SQLite
+ API REST: GET, POST, PUT, DELETE Y REPORTES
+*/
 
 const express = require("express");
 const db = require("./database");
@@ -10,9 +12,16 @@ const path = require("path");
 const app = express();
 const PORT = 3000;
 
-// Configuración del servidor
+// ========================================
+// CONFIGURACIÓN DEL SERVIDOR
+// ========================================
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
+
+// ========================================
+// FUNCIONES AUXILIARES
+// ========================================
 
 // Limpiar los datos recibidos
 function limpiarTexto(valor) {
@@ -40,7 +49,7 @@ function validarDatos(datos) {
     return "Todos los campos son obligatorios.";
   }
 
-  // Validar el correo electrónico
+  // Validar correo electrónico
   const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (!correoValido.test(datos.correo)) {
@@ -48,14 +57,18 @@ function validarDatos(datos) {
   }
 
   // Validar teléfono
-  if (datos.telefono.length < 8 ||
-      datos.telefono.length > 15) {
+  if (
+    datos.telefono.length < 8 ||
+    datos.telefono.length > 15
+  ) {
     return "El teléfono debe tener entre 8 y 15 caracteres.";
   }
 
   // Validar nombre
-  if (datos.nombre.length < 2 ||
-      datos.nombre.length > 100) {
+  if (
+    datos.nombre.length < 2 ||
+    datos.nombre.length > 100
+  ) {
     return "El nombre debe tener entre 2 y 100 caracteres.";
   }
 
@@ -66,7 +79,10 @@ function validarDatos(datos) {
 function validarId(valor) {
   const id = Number(valor);
 
-  if (!Number.isSafeInteger(id) || id <= 0) {
+  if (
+    !Number.isSafeInteger(id) ||
+    id <= 0
+  ) {
     return null;
   }
 
@@ -79,14 +95,17 @@ function validarId(valor) {
 
 app.get("/api/inscripciones", (req, res) => {
   try {
+
     const inscripciones = db.prepare(`
-      SELECT * FROM inscripciones
+      SELECT *
+      FROM inscripciones
       ORDER BY id ASC
     `).all();
 
     res.status(200).json(inscripciones);
 
   } catch (error) {
+
     console.error("Error al consultar:", error);
 
     res.status(500).json({
@@ -102,17 +121,17 @@ app.get("/api/inscripciones", (req, res) => {
 app.post("/api/inscripciones", (req, res) => {
   try {
 
-    // Obtener los datos del formulario
+    // Obtener datos
     const datos = obtenerDatos(req.body || {});
 
-    // Validar la información
+    // Validar información
     const error = validarDatos(datos);
 
     if (error) {
       return res.status(400).json({ error });
     }
 
-    // Insertar los datos en SQLite
+    // Insertar participante en SQLite
     const consulta = db.prepare(`
       INSERT INTO inscripciones (
         nombre,
@@ -136,9 +155,10 @@ app.post("/api/inscripciones", (req, res) => {
       datos.nivel_experiencia
     );
 
-    // Obtener el participante registrado
+    // Obtener participante registrado
     const nuevoRegistro = db.prepare(`
-      SELECT * FROM inscripciones
+      SELECT *
+      FROM inscripciones
       WHERE id = ?
     `).get(resultado.lastInsertRowid);
 
@@ -148,6 +168,7 @@ app.post("/api/inscripciones", (req, res) => {
     });
 
   } catch (error) {
+
     console.error("Error al registrar:", error);
 
     res.status(500).json({
@@ -163,7 +184,7 @@ app.post("/api/inscripciones", (req, res) => {
 app.put("/api/inscripciones/:id", (req, res) => {
   try {
 
-    // Obtener y validar el ID
+    // Validar ID
     const id = validarId(req.params.id);
 
     if (id === null) {
@@ -172,9 +193,10 @@ app.put("/api/inscripciones/:id", (req, res) => {
       });
     }
 
-    // Buscar el participante
+    // Buscar participante
     const existente = db.prepare(`
-      SELECT * FROM inscripciones
+      SELECT *
+      FROM inscripciones
       WHERE id = ?
     `).get(id);
 
@@ -184,17 +206,17 @@ app.put("/api/inscripciones/:id", (req, res) => {
       });
     }
 
-    // Obtener los nuevos datos
+    // Obtener datos actualizados
     const datos = obtenerDatos(req.body || {});
 
-    // Validar los nuevos datos
+    // Validar cambios
     const error = validarDatos(datos);
 
     if (error) {
       return res.status(400).json({ error });
     }
 
-    // Actualizar la información en SQLite
+    // Actualizar participante en SQLite
     db.prepare(`
       UPDATE inscripciones
       SET
@@ -217,9 +239,10 @@ app.put("/api/inscripciones/:id", (req, res) => {
       id
     );
 
-    // Consultar el registro actualizado
+    // Obtener registro actualizado
     const registroActualizado = db.prepare(`
-      SELECT * FROM inscripciones
+      SELECT *
+      FROM inscripciones
       WHERE id = ?
     `).get(id);
 
@@ -229,6 +252,7 @@ app.put("/api/inscripciones/:id", (req, res) => {
     });
 
   } catch (error) {
+
     console.error("Error al actualizar:", error);
 
     res.status(500).json({
@@ -244,7 +268,7 @@ app.put("/api/inscripciones/:id", (req, res) => {
 app.delete("/api/inscripciones/:id", (req, res) => {
   try {
 
-    // Obtener y validar el ID
+    // Validar ID
     const id = validarId(req.params.id);
 
     if (id === null) {
@@ -253,7 +277,7 @@ app.delete("/api/inscripciones/:id", (req, res) => {
       });
     }
 
-    // Eliminar el participante de SQLite
+    // Eliminar participante
     const resultado = db.prepare(`
       DELETE FROM inscripciones
       WHERE id = ?
@@ -272,10 +296,72 @@ app.delete("/api/inscripciones/:id", (req, res) => {
     });
 
   } catch (error) {
+
     console.error("Error al eliminar:", error);
 
     res.status(500).json({
       error: "No se pudo eliminar la inscripción."
+    });
+  }
+});
+
+// ========================================
+// GET: REPORTES Y ESTADÍSTICAS
+// ========================================
+
+app.get("/api/reportes", (req, res) => {
+  try {
+
+    // Total de participantes inscritos
+    const total = db.prepare(`
+      SELECT COUNT(*) AS total
+      FROM inscripciones
+    `).get();
+
+    // Participantes por taller
+    const porTaller = db.prepare(`
+      SELECT
+        taller,
+        COUNT(*) AS cantidad
+      FROM inscripciones
+      GROUP BY taller
+      ORDER BY cantidad DESC, taller ASC
+    `).all();
+
+    // Participantes por modalidad
+    const porModalidad = db.prepare(`
+      SELECT
+        modalidad,
+        COUNT(*) AS cantidad
+      FROM inscripciones
+      GROUP BY modalidad
+      ORDER BY cantidad DESC, modalidad ASC
+    `).all();
+
+    // Participantes por nivel de experiencia
+    const porNivel = db.prepare(`
+      SELECT
+        nivel_experiencia,
+        COUNT(*) AS cantidad
+      FROM inscripciones
+      GROUP BY nivel_experiencia
+      ORDER BY cantidad DESC, nivel_experiencia ASC
+    `).all();
+
+    // Enviar estadísticas en formato JSON
+    res.status(200).json({
+      totalParticipantes: total.total,
+      participantesPorTaller: porTaller,
+      participantesPorModalidad: porModalidad,
+      participantesPorNivel: porNivel
+    });
+
+  } catch (error) {
+
+    console.error("Error al generar reportes:", error);
+
+    res.status(500).json({
+      error: "No se pudieron generar los reportes."
     });
   }
 });
