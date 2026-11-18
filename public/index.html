@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Registro al taller de Desarrollo Web</title>
 
   <!-- Conexión con CSS -->
@@ -16,20 +17,25 @@
 <body>
   <main class="contenedor">
 
+    <!-- Encabezado de la página -->
     <header class="encabezado">
       <p class="etiqueta">
         Universidad · Actividad de clase
       </p>
+
       <h1>Registro al taller</h1>
+
       <p>Completa tus datos para reservar un espacio.</p>
     </header>
 
+    <!-- Panel del formulario -->
     <section class="panel" aria-labelledby="titulo-formulario">
+
       <h2 id="titulo-formulario">Datos de inscripción</h2>
 
       <form id="formulario-registro">
 
-        <!-- Nombre completo -->
+        <!-- Campo 1: Nombre completo -->
         <label for="nombre">Nombre completo</label>
         <input
           id="nombre"
@@ -39,9 +45,10 @@
           minlength="2"
           maxlength="100"
           autocomplete="name"
+          placeholder="Escribe tu nombre completo"
         >
 
-        <!-- Correo electrónico -->
+        <!-- Campo 2: Correo electrónico -->
         <label for="correo">Correo electrónico</label>
         <input
           id="correo"
@@ -49,9 +56,10 @@
           type="email"
           required
           autocomplete="email"
+          placeholder="ejemplo@correo.com"
         >
 
-        <!-- Taller -->
+        <!-- Campo 3: Taller -->
         <label for="taller">Taller</label>
         <select id="taller" name="taller" required>
           <option value="">Selecciona un taller</option>
@@ -62,7 +70,7 @@
           </option>
         </select>
 
-        <!-- Nuevo campo: teléfono -->
+        <!-- Campo 4: Número de teléfono -->
         <label for="telefono">Número de teléfono</label>
         <input
           id="telefono"
@@ -75,7 +83,7 @@
           placeholder="Ejemplo: 12345678"
         >
 
-        <!-- Nuevo campo: horario -->
+        <!-- Campo 5: Horario del taller -->
         <label for="horario">Horario del taller</label>
         <select id="horario" name="horario" required>
           <option value="">Selecciona un horario</option>
@@ -83,24 +91,50 @@
           <option value="Vespertino">Vespertino</option>
         </select>
 
-        <!-- Botón de registro -->
+        <!-- Campo 6: Modalidad del taller -->
+        <label for="modalidad">Modalidad del taller</label>
+        <select id="modalidad" name="modalidad" required>
+          <option value="">Selecciona una modalidad</option>
+          <option value="Presencial">Presencial</option>
+          <option value="Virtual">Virtual</option>
+          <option value="Híbrida">Híbrida</option>
+        </select>
+
+        <!-- Campo 7: Nivel de experiencia -->
+        <label for="nivel_experiencia">
+          Nivel de experiencia
+        </label>
+        <select
+          id="nivel_experiencia"
+          name="nivel_experiencia"
+          required
+        >
+          <option value="">Selecciona tu nivel</option>
+          <option value="Principiante">Principiante</option>
+          <option value="Intermedio">Intermedio</option>
+          <option value="Avanzado">Avanzado</option>
+        </select>
+
+        <!-- Botón para registrar -->
         <button type="submit">
           Registrar inscripción
         </button>
 
       </form>
 
-      <!-- Mensajes del formulario -->
+      <!-- Mensajes de éxito o error -->
       <p
         id="mensaje"
         class="mensaje"
         role="status"
         aria-live="polite">
       </p>
+
     </section>
 
-    <!-- Lista de participantes -->
+    <!-- Panel de participantes inscritos -->
     <section class="panel" aria-labelledby="titulo-lista">
+
       <h2 id="titulo-lista">Participantes inscritos</h2>
 
       <ul id="lista-inscripciones" aria-live="polite">
@@ -108,6 +142,7 @@
           Aún no hay inscripciones.
         </li>
       </ul>
+
     </section>
 
   </main>

@@ -856,3 +856,114 @@ Se respondieron las siete preguntas de repaso sobre frontend. Las respuestas inc
 **Conclusión:**
 
 Este cuestionario me ayudó a reforzar los conceptos fundamentales del desarrollo frontend y comprender cómo trabajan juntos HTML, CSS y JavaScript.
+
+### Actividad 18 – Quiz backend, SQL y Git
+
+**Resumen propio (2–3 frases):**
+
+En esta actividad repasé los conocimientos adquiridos sobre Node.js, Express, SQL y Git mediante un cuestionario de ocho preguntas. Comprendí cómo funciona el servidor, cómo se procesan las solicitudes HTTP y cómo se consultan datos. También reforcé los comandos utilizados para guardar y publicar las versiones de mi proyecto.
+
+**Dos términos clave:**
+
+- **Backend:** Es la parte de una aplicación que funciona en el servidor y se encarga de procesar solicitudes y datos.
+- **API:** Es un conjunto de rutas que permite intercambiar información entre el frontend y el servidor.
+
+**Respuestas del cuestionario:**
+
+1. **Node.js:** Es un entorno que permite ejecutar JavaScript fuera del navegador, por ejemplo, en un servidor.
+2. **npm install:** Instala las dependencias necesarias para ejecutar el proyecto.
+3. **GET:** Es el método HTTP utilizado normalmente para consultar información.
+4. **express.json():** Permite interpretar el cuerpo JSON enviado al servidor.
+5. **HTTP 201:** Indica que un recurso se creó correctamente.
+6. **SELECT:** Es la sentencia SQL utilizada para consultar registros de una tabla.
+7. **git push:** Envía los commits locales al repositorio remoto.
+8. **Git y GitHub:** Git controla las versiones del código, mientras que GitHub permite almacenar y compartir repositorios en línea.
+
+**Ejemplo de código explicado:**
+
+```javascript
+app.get("/api/inscripciones", (req, res) => {
+  res.json([]);
+});
+```
+
+Este código crea una ruta GET con Express que permite consultar las inscripciones y devuelve un arreglo vacío en formato JSON.
+
+**Resultado obtenido:**
+
+Se respondieron las ocho preguntas del cuestionario sobre backend, SQL y control de versiones.
+
+**Pregunta de examen:**
+
+¿Qué diferencia existe entre los métodos GET y POST?
+
+**Respuesta:**
+
+GET se utiliza para consultar información, mientras que POST permite enviar datos al servidor, normalmente para crear un nuevo registro.
+
+**Conclusión:**
+
+Esta actividad me ayudó a comprender mejor la comunicación entre el frontend y el backend, el manejo de información y la importancia de Git para mantener organizado el historial de cambios.
+
+
+## Ampliación del proyecto – Integración de SQLite y CRUD
+
+### Objetivo
+Mejorar el sistema de registro al taller mediante una base de datos SQLite y operaciones CRUD para administrar las inscripciones.
+
+### Tecnologías utilizadas
+- HTML5
+- CSS3
+- JavaScript
+- Node.js
+- Express
+- SQLite
+- Git y GitHub
+
+### Actividades realizadas
+
+**1. Creación de la base de datos**
+
+Se creó el archivo `database.js` para configurar SQLite y la tabla `inscripciones`, donde se guardan los datos de los participantes.
+
+**2. Conexión con Express**
+
+Se modificó `server.js` para conectar el servidor con SQLite y almacenar los registros de manera permanente.
+
+**3. Actualización del formulario**
+
+Se agregaron dos campos: modalidad del taller y nivel de experiencia.
+
+**4. Implementación de operaciones CRUD**
+
+Se implementaron cuatro métodos HTTP:
+
+- GET: consulta las inscripciones registradas.
+- POST: registra nuevos participantes.
+- PUT: modifica los datos existentes.
+- DELETE: elimina inscripciones.
+
+**5. Actualización de JavaScript**
+
+Se modificó `app.js` para enviar y recibir información mediante `fetch()` y actualizar la lista sin recargar la página.
+
+**6. Pruebas realizadas**
+
+- Se registró correctamente a Ana López.
+- Se verificó que los datos permanecieran después de reiniciar el servidor.
+- Se modificó el horario de Ana López de Matutino a Vespertino.
+- Se registró a Carlos Pérez.
+- Se eliminó correctamente a Carlos Pérez.
+- Se comprobó que Ana López permaneciera registrada.
+
+**7. Mejoras de diseño**
+
+Se actualizaron los estilos CSS para presentar los participantes en tarjetas y diferenciar las acciones mediante botones azules para editar y rojos para eliminar.
+
+### Resultado obtenido
+
+El sistema permite registrar, consultar, editar y eliminar participantes utilizando SQLite. Los datos permanecen almacenados después de reiniciar el servidor.
+
+### Conclusión
+
+Aprendí a conectar una aplicación web con una base de datos SQLite utilizando Node.js y Express. También comprendí cómo funcionan las operaciones CRUD y cómo utilizar JavaScript para actualizar la información sin recargar la página.
